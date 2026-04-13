@@ -6,12 +6,12 @@
   --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand-amber: #EF4444; /* Red - Sword */
-  --color-brand-terracotta: #991B1B; /* Dark Red - Shield */
-  --color-brand-gold: #FCD34D; /* Brighter Gold */
-  --color-brand-forest: #262626; /* Brighter Dark */
-  --color-brand-earth: #171717; /* Brighter Black */
-  --color-brand-jungle: #10B981; /* Emerald */
+  --color-brand-amber: #ff444f; /* Deriv Red */
+  --color-brand-terracotta: #cc363f; /* Darker Red */
+  --color-brand-gold: #ffb84d; /* Gold */
+  --color-brand-forest: var(--brand-forest); /* Dynamic hover bg */
+  --color-brand-earth: var(--brand-earth); /* Dynamic earth */
+  --color-brand-jungle: #4bb4b3; /* Teal */
 
   --color-aegis-bg: var(--aegis-bg);
   --color-aegis-card: var(--aegis-card);
@@ -22,27 +22,31 @@
 }
 
 :root {
-  --aegis-bg: #171717;
-  --aegis-card: rgba(38, 38, 38, 0.4);
-  --aegis-border: rgba(124, 45, 18, 0.2);
-  --aegis-text: rgba(255, 247, 237, 0.9);
-  --aegis-text-secondary: rgba(255, 247, 237, 0.6);
-  --aegis-text-muted: rgba(255, 247, 237, 0.3);
+  --aegis-bg: #0e0e0e;
+  --aegis-card: rgba(25, 25, 25, 0.6);
+  --aegis-border: rgba(255, 68, 79, 0.2);
+  --aegis-text: #ffffff;
+  --aegis-text-secondary: rgba(255, 255, 255, 0.7);
+  --aegis-text-muted: rgba(255, 255, 255, 0.4);
+  --brand-forest: #262626;
+  --brand-earth: #171717;
 }
 
 body.light {
-  --aegis-bg: #F9FAFB;
-  --aegis-card: #FFFFFF;
-  --aegis-border: #E5E7EB;
-  --aegis-text: #111827;
-  --aegis-text-secondary: #4B5563;
-  --aegis-text-muted: #9CA3AF;
+  --aegis-bg: #f2f3f4;
+  --aegis-card: #ffffff;
+  --aegis-border: rgba(255, 68, 79, 0.2);
+  --aegis-text: #333333;
+  --aegis-text-secondary: #666666;
+  --aegis-text-muted: #999999;
+  --brand-forest: #e5e7eb;
+  --brand-earth: #ffffff;
 }
 
 @layer base {
   body {
     @apply bg-aegis-bg text-aegis-text font-sans antialiased transition-colors duration-300;
-    background-image: radial-gradient(circle at 50% 0%, #262626 0%, #171717 100%);
+    background-image: radial-gradient(circle at 50% 0%, rgba(25, 25, 25, 1) 0%, rgba(14, 14, 14, 1) 100%);
   }
 
   body.light {
@@ -56,8 +60,8 @@ body.light {
 
 .aegis-grid {
   background-image: 
-    linear-gradient(to right, rgba(184, 75, 38, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(184, 75, 38, 0.1) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 68, 79, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 68, 79, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -68,7 +72,7 @@ body.light .aegis-grid {
 }
 
 .african-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30 30 0zm0 10L10 30l20 20 20-20-20-20z' fill='%23B84B26' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30 30 0zm0 10L10 30l20 20 20-20-20-20z' fill='%23ff444f' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   opacity: 0.4;
 }
 
@@ -85,9 +89,9 @@ body.light .glass-card {
 }
 
 .neon-glow-red {
-  box-shadow: 0 0 20px rgba(242, 125, 38, 0.3);
+  box-shadow: 0 0 20px rgba(255, 68, 79, 0.3);
 }
 
 .neon-glow-blue {
-  box-shadow: 0 0 20px rgba(184, 75, 38, 0.3);
+  box-shadow: 0 0 20px rgba(75, 180, 179, 0.3);
 }

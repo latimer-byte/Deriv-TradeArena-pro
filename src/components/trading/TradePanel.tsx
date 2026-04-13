@@ -5,13 +5,15 @@ import { useDeriv } from '@/contexts/DerivContext';
 
 interface TradePanelProps {
   symbol: string;
-  onTrade: (type: 'CALL' | 'PUT', amount: number, hedge: boolean) => void;
+  onTrade: (type: 'CALL' | 'PUT', amount: number, hedge: boolean, duration: { value: number, unit: string }) => void;
   isTrading: boolean;
 }
 
 export const TradePanel: React.FC<TradePanelProps> = ({ symbol, onTrade, isTrading }) => {
   const { balance, currency } = useDeriv();
   const [amount, setAmount] = useState(10);
+  const [durationValue, setDurationValue] = useState(15);
+  const [durationUnit, setDurationUnit] = useState<'s' | 'm' | 'h'>('s');
   const [useAegisShield, setUseAegisShield] = useState(true);
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
@@ -54,6 +56,29 @@ export const TradePanel: React.FC<TradePanelProps> = ({ symbol, onTrade, isTradi
           </div>
         </div>
 
+        <div>
+          <label className="text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest mb-2 block">
+            Duration
+          </label>
+          <div className="flex gap-2">
+            <input 
+              type="number" 
+              value={durationValue}
+              onChange={(e) => setDurationValue(Number(e.target.value))}
+              className="w-2/3 bg-aegis-bg border border-aegis-border rounded-xl py-4 px-4 text-xl font-mono focus:ring-2 focus:ring-brand-amber/20 outline-none transition-all text-aegis-text"
+            />
+            <select
+              value={durationUnit}
+              onChange={(e) => setDurationUnit(e.target.value as any)}
+              className="w-1/3 bg-aegis-bg border border-aegis-border rounded-xl py-4 px-4 text-sm font-bold focus:ring-2 focus:ring-brand-amber/20 outline-none transition-all text-aegis-text appearance-none text-center"
+            >
+              <option value="s">Sec</option>
+              <option value="m">Min</option>
+              <option value="h">Hr</option>
+            </select>
+          </div>
+        </div>
+
         <div 
           onClick={() => setUseAegisShield(!useAegisShield)}
           className={cn(
@@ -71,7 +96,7 @@ export const TradePanel: React.FC<TradePanelProps> = ({ symbol, onTrade, isTradi
               <Shield className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-sm font-bold tracking-tight text-aegis-text">Aegis Shield</p>
+              <p className="text-sm font-bold tracking-tight text-aegis-text">TradeArena Shield</p>
               <p className="text-[10px] text-aegis-text-muted font-bold uppercase tracking-widest">Auto-hedge 50% stake</p>
             </div>
           </div>
@@ -90,7 +115,7 @@ export const TradePanel: React.FC<TradePanelProps> = ({ symbol, onTrade, isTradi
       <div className="grid grid-cols-2 gap-4">
         <button
           disabled={isTrading}
-          onClick={() => onTrade('CALL', amount, useAegisShield)}
+          onClick={() => onTrade('CALL', amount, useAegisShield, { value: durationValue, unit: durationUnit })}
           className="group relative overflow-hidden py-6 bg-brand-jungle hover:bg-brand-jungle/90 text-white rounded-2xl font-bold transition-all disabled:opacity-50 shadow-lg shadow-brand-jungle/20"
         >
           <div className="relative z-10 flex flex-col items-center gap-1">
@@ -103,7 +128,7 @@ export const TradePanel: React.FC<TradePanelProps> = ({ symbol, onTrade, isTradi
 
         <button
           disabled={isTrading}
-          onClick={() => onTrade('PUT', amount, useAegisShield)}
+          onClick={() => onTrade('PUT', amount, useAegisShield, { value: durationValue, unit: durationUnit })}
           className="group relative overflow-hidden py-6 bg-brand-amber hover:bg-brand-amber/90 text-white rounded-2xl font-bold transition-all disabled:opacity-50 neon-glow-red"
         >
           <div className="relative z-10 flex flex-col items-center gap-1">

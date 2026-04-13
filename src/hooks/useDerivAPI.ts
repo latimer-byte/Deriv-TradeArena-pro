@@ -13,8 +13,8 @@ export const useDerivAPI = (appId: string) => {
     // This hook can be a wrapper for common operations
   }, [appId]);
 
-  // The "Aegis Execution" - Simultaneous Trade + Hedge
-  const executeAegisTrade = useCallback(async (symbol: string, amount: number) => {
+  // The "TradeArena Execution" - Simultaneous Trade + Hedge
+  const executeTradeArenaTrade = useCallback(async (symbol: string, amount: number) => {
     // The "Sword" (Primary Trade)
     // In a real app with real money, we'd use deriv.send({ buy: 1, ... })
     console.log(`Executing Sword Trade: ${symbol} for ${amount}`);
@@ -28,5 +28,5 @@ export const useDerivAPI = (appId: string) => {
     return { success: true, sword: 'CALL', shield: 'PUT' };
   }, []);
 
-  return { lastTick, executeAegisTrade, isConnected };
+  return { lastTick, executeTradeArenaTrade, isConnected };
 };

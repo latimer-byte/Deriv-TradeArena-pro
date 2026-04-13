@@ -29,7 +29,7 @@ export const Profile: React.FC = () => {
     setMessage(null);
     try {
       await authorize(token);
-      setMessage({ type: 'success', text: 'Aegis Network Link Established!' });
+      setMessage({ type: 'success', text: 'TradeArena Network Link Established!' });
       setToken('');
     } catch (err: any) {
       setMessage({ type: 'error', text: err.message || 'Link Failed: Invalid Credentials' });
@@ -43,7 +43,7 @@ export const Profile: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-4xl font-bold text-aegis-text tracking-tight font-display">Account Settings</h2>
-          <p className="text-aegis-text-muted mt-1 uppercase tracking-[0.2em] text-[10px] font-bold">Manage your Aegis Network Identity & Security</p>
+          <p className="text-aegis-text-muted mt-1 uppercase tracking-[0.2em] text-[10px] font-bold">Manage your TradeArena Network Identity & Security</p>
         </div>
         {loginId && (
           <button 
@@ -68,7 +68,7 @@ export const Profile: React.FC = () => {
             </div>
             <div>
               <h3 className="text-2xl font-bold font-display">Simulation Account</h3>
-              <p className="text-aegis-text-secondary mt-2 text-sm leading-relaxed">Experience the Aegis Network with 10,000 virtual credits. Ideal for testing Sword & Shield strategies without capital risk.</p>
+              <p className="text-aegis-text-secondary mt-2 text-sm leading-relaxed">Experience the TradeArena Network with 10,000 virtual credits. Ideal for testing Sword & Shield strategies without capital risk.</p>
             </div>
             <button 
               onClick={setGuestMode}
@@ -138,18 +138,18 @@ export const Profile: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold font-display text-aegis-text">Personal Details</h3>
-                <p className="text-sm text-aegis-text-secondary">Your Aegis Network identity information.</p>
+                <p className="text-sm text-aegis-text-secondary">Your TradeArena Network identity information.</p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Full Name</label>
-                <p className="text-aegis-text font-bold">{loginId ? 'Aegis Operator' : 'Unidentified'}</p>
+                <p className="text-aegis-text font-bold">{loginId ? 'TradeArena Operator' : 'Unidentified'}</p>
               </div>
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Email Address</label>
-                <p className="text-aegis-text font-bold">{loginId ? 'operator@aegis.network' : 'Not linked'}</p>
+                <p className="text-aegis-text font-bold">{loginId ? 'operator@tradearena.network' : 'Not linked'}</p>
               </div>
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Country</label>
@@ -170,7 +170,7 @@ export const Profile: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold font-display text-aegis-text">API Token Management</h3>
-                <p className="text-sm text-aegis-text-secondary">Securely link your Deriv account to the Aegis interface.</p>
+                <p className="text-sm text-aegis-text-secondary">Securely link your Deriv account to the TradeArena interface.</p>
               </div>
             </div>
 
@@ -189,7 +189,7 @@ export const Profile: React.FC = () => {
                 <div className="flex items-start gap-2 mt-3 p-4 bg-brand-amber/5 rounded-xl border border-brand-amber/10">
                   <AlertCircle className="w-4 h-4 text-brand-amber shrink-0 mt-0.5" />
                   <p className="text-[10px] text-aegis-text-muted leading-relaxed">
-                    To generate a token, go to the <a href="https://app.deriv.com/account/api-token" target="_blank" className="text-brand-amber hover:underline font-bold">Deriv API Token page</a>. Select "Read" and "Trade" scopes for full Aegis functionality.
+                    To generate a token, go to the <a href="https://app.deriv.com/account/api-token" target="_blank" className="text-brand-amber hover:underline font-bold">Deriv API Token page</a>. Select "Read" and "Trade" scopes for full TradeArena functionality.
                   </p>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 {
-  "name": "Remix: Aegis Trader",
-  "description": "A gamified risk-neutral trading platform featuring automated hedging (Sword \u0026 Shield) and real-time risk visualization.",
+  "name": "Deriv TradeArena",
+  "description": "A gamified risk-neutral trading platform featuring automated hedging and real-time risk visualization.",
   "requestFramePermissions": []
 }

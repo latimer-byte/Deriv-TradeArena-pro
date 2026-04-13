@@ -78,6 +78,7 @@ export const History: React.FC = () => {
                 <th className="px-6 py-4 text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Asset Node</th>
                 <th className="px-6 py-4 text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Protocol</th>
                 <th className="px-6 py-4 text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Amount</th>
+                <th className="px-6 py-4 text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Duration</th>
                 <th className="px-6 py-4 text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Status</th>
                 <th className="px-6 py-4 text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Reference</th>
                 <th className="px-6 py-4 text-[10px] font-bold text-aegis-text-muted uppercase tracking-widest">Timestamp</th>
@@ -116,6 +117,7 @@ export const History: React.FC = () => {
                       {trade.amount}
                     </span>
                   </td>
+                  <td className="px-6 py-4 font-mono text-[10px] text-aegis-text-muted">{trade.duration || '-'}</td>
                   <td className="px-6 py-4">
                     <span className={cn(
                       "text-[10px] font-bold uppercase tracking-widest",
@@ -138,7 +140,7 @@ export const History: React.FC = () => {
                 </tr>
               )) : (
                 <tr>
-                  <td colSpan={7} className="px-6 py-20 text-center">
+                  <td colSpan={8} className="px-6 py-20 text-center">
                     <HistoryIcon className="w-12 h-12 text-aegis-text-muted/10 mx-auto mb-4" />
                     <p className="text-aegis-text-muted font-bold uppercase tracking-widest text-xs">No neural logs found in this sector</p>
                   </td>

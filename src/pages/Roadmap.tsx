@@ -52,7 +52,7 @@ const roadmapPhases = [
     icon: Target,
     color: 'bg-brand-jungle',
     coreFeatures: [
-      'Aegis Academy (Interactive Lessons)',
+      'TradeArena Academy (Interactive Lessons)',
       'Quiz-based Rewards',
       'Crypto & Commodity Assets',
       'Multi-country Payment Gateways'
@@ -133,7 +133,7 @@ const roadmapPhases = [
     icon: Crown,
     color: 'bg-brand-amber',
     coreFeatures: [
-      'Aegis Bank (Digital Banking & Cards)',
+      'TradeArena Bank (Digital Banking & Cards)',
       'Tokenized Real Estate Marketplace',
       'Insurance & Pension Products',
       'Venture Capital Launchpad'
@@ -160,7 +160,7 @@ export const Roadmap: React.FC = () => {
     <div className="space-y-12 pb-20 aegis-grid min-h-screen">
       {/* Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <h2 className="text-5xl font-bold text-aegis-text tracking-tight font-display">Aegis Evolution Matrix</h2>
+        <h2 className="text-5xl font-bold text-aegis-text tracking-tight font-display">TradeArena Evolution Matrix</h2>
         <p className="text-xl text-aegis-text-secondary leading-relaxed">
           The roadmap to becoming the world's first neural capital protection super-app. From a simple utility to a global financial fortress.
         </p>

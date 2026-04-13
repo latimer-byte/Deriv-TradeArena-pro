@@ -145,7 +145,7 @@ export const Trade: React.FC = () => {
     };
   }, [selectedSymbol, chartType, loginId]);
 
-  const handleAegisTrade = async (type: 'CALL' | 'PUT', amount: number, hedge: boolean) => {
+  const handleAegisTrade = async (type: 'CALL' | 'PUT', amount: number, hedge: boolean, duration: { value: number, unit: string }) => {
     if (amount > balance) {
       setTradeMessage({ type: 'error', text: 'Insufficient credits for this operation.' });
       setTimeout(() => setTradeMessage(null), 3000);
@@ -155,7 +155,7 @@ export const Trade: React.FC = () => {
     setIsTrading(true);
     setTradeMessage(null);
     try {
-      // Simulate Aegis Execution
+      // Simulate TradeArena Execution
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const entryPrice = ticks[ticks.length - 1]?.value || 0;
@@ -176,7 +176,8 @@ export const Trade: React.FC = () => {
             amount: `+${formatCurrency(payout - amount, currency)}`,
             status: 'Win',
             price: entryPrice.toFixed(2),
-            time: new Date().toISOString()
+            time: new Date().toISOString(),
+            duration: `${duration.value}${duration.unit}`
           });
         } else {
           // If hedged, loss is only 50%
@@ -188,18 +189,19 @@ export const Trade: React.FC = () => {
             amount: `-${formatCurrency(actualLoss, currency)}`,
             status: hedge ? 'Shielded' : 'Loss',
             price: entryPrice.toFixed(2),
-            time: new Date().toISOString()
+            time: new Date().toISOString(),
+            duration: `${duration.value}${duration.unit}`
           });
         }
       }
       
       setTradeMessage({ 
         type: isWin ? 'success' : (hedge ? 'info' : 'error'), 
-        text: isWin ? 'Aegis Strike Successful!' : (hedge ? 'Shield Absorbed Damage!' : 'Shield Failed! Critical Hit.')
+        text: isWin ? 'TradeArena Strike Successful!' : (hedge ? 'Shield Absorbed Damage!' : 'Shield Failed! Critical Hit.')
       });
       setTimeout(() => setTradeMessage(null), 4000);
     } catch (err: any) {
-      setTradeMessage({ type: 'error', text: 'Aegis Network Error: ' + err.message });
+      setTradeMessage({ type: 'error', text: 'TradeArena Network Error: ' + err.message });
       setTimeout(() => setTradeMessage(null), 4000);
     } finally {
       setIsTrading(false);
@@ -219,7 +221,7 @@ export const Trade: React.FC = () => {
             </div>
             <div>
               <h3 className="text-3xl font-bold text-aegis-text font-display">Trade</h3>
-              <p className="text-aegis-text-secondary mt-2">Authentication required to access the Aegis Trade Network.</p>
+              <p className="text-aegis-text-secondary mt-2">Authentication required to access the TradeArena Network.</p>
             </div>
             <button 
               onClick={() => navigate('/profile')}
@@ -261,7 +263,7 @@ export const Trade: React.FC = () => {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-aegis-text-muted w-4 h-4" />
               <input 
                 type="text" 
-                placeholder="Search Aegis Assets..." 
+                placeholder="Search TradeArena Assets..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-aegis-bg border border-aegis-border rounded-xl py-2 pl-10 pr-4 text-sm text-aegis-text outline-none focus:ring-2 focus:ring-brand-amber/20 placeholder:text-aegis-text-muted"

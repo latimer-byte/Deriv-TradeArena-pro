@@ -42,7 +42,10 @@ export const Layout: React.FC = () => {
           <div className="w-10 h-10 bg-brand-amber rounded-xl flex items-center justify-center shadow-lg shadow-brand-amber/20">
             <TrendingUp className="text-white w-6 h-6" />
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-aegis-text font-display">Aegis</h1>
+          <div className="flex flex-col">
+            <span className="text-[10px] font-bold text-brand-amber uppercase tracking-widest leading-none mb-1">Deriv</span>
+            <h1 className="text-2xl font-bold tracking-tight text-aegis-text font-display leading-none">TradeArena</h1>
+          </div>
         </div>
 
         <nav className="flex-1 px-4 space-y-1 mt-4">
@@ -91,8 +94,9 @@ export const Layout: React.FC = () => {
             <TrendingUp className="text-white w-5 h-5" />
           </div>
           <div>
-            <h1 className="text-sm font-bold text-aegis-text font-display leading-tight">Aegis</h1>
-            <p className="text-[10px] font-mono font-bold text-brand-amber leading-tight">
+            <span className="text-[8px] font-bold text-brand-amber uppercase tracking-widest leading-none block mb-0.5">Deriv</span>
+            <h1 className="text-sm font-bold text-aegis-text font-display leading-none">TradeArena</h1>
+            <p className="text-[10px] font-mono font-bold text-aegis-text-secondary leading-tight mt-0.5">
               {new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(balance)}
             </p>
           </div>
@@ -121,7 +125,10 @@ export const Layout: React.FC = () => {
                 <div className="w-8 h-8 bg-brand-amber rounded-lg flex items-center justify-center neon-glow-red">
                   <TrendingUp className="text-white w-5 h-5" />
                 </div>
-                <h1 className="text-2xl font-bold text-aegis-text font-display">Aegis Trader</h1>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-brand-amber uppercase tracking-widest leading-none mb-1">Deriv</span>
+                  <h1 className="text-2xl font-bold text-aegis-text font-display leading-none">TradeArena</h1>
+                </div>
               </div>
               <button onClick={() => setIsMobileMenuOpen(false)} className="text-aegis-text-muted hover:text-aegis-text"><X /></button>
             </div>

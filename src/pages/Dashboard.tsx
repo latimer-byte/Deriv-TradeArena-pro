@@ -83,7 +83,7 @@ export const Dashboard: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-amber/10 border border-brand-amber/20 text-[10px] font-bold text-brand-amber uppercase tracking-widest">
               <Shield className="w-3 h-3" /> Secure Trading Environment
             </div>
-            <h2 className="text-5xl font-bold tracking-tight font-display leading-tight">Master the Markets with <span className="text-brand-amber">Aegis Precision</span></h2>
+            <h2 className="text-5xl font-bold tracking-tight font-display leading-tight">Master the Markets with <span className="text-brand-amber">TradeArena Precision</span></h2>
             <p className="text-aegis-text-secondary text-lg max-w-2xl leading-relaxed">Connect your Deriv account to access institutional-grade trading tools, real-time analytics, and advanced capital protection protocols.</p>
             <div className="flex flex-wrap gap-6 justify-center md:justify-start">
               <div className="flex items-center gap-2 text-xs font-bold text-aegis-text-muted uppercase tracking-widest">
